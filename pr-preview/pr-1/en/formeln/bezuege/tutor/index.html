@@ -62,13 +62,13 @@
 <h3>Move along or stay fixed</h3>
 <p>A reference like B3 really remembers a way: “one column to the left, in my row”. When you copy the formula, it goes the same way from its new cell. That is right for B3: each row should take its own number sold. It is wrong for B1: the price is only in one place, B1.</p>
 <ul>
-<li><p><strong>relative reference</strong>: A cell reference without $, for example B3. When you copy it, it moves along by as many columns and rows as the formula.</p>
-</li>
-<li><p><strong>absolute reference</strong>: A cell reference with $ before the column and the row, for example $B$1. When you copy it, it stays the same. The $ has nothing to do with money.</p>
-</li>
+<li><strong>relative reference</strong>: A cell reference without $, for example B3. When you copy it, it moves along by as many columns and rows as the formula.</li>
 </ul>
 <p>Selin now writes =B3*$B$1 in C3. Copy the formula and select C5. The dashed arrow with $ always points to B1.</p>
 <p>Interactive: The same waffle stall. C3 holds =B3*$B$1, which gives 45. Copied to C4 to C6: C4 =B4*$B$1 gives 62.5, C5 =B5*$B$1 gives 77.5, C6 =B6*$B$1 gives 30. The reference to B3 moves along, $B$1 stays fixed.</p>
+<ul>
+<li><strong>absolute reference</strong>: A cell reference with $ before the column and the row, for example $B$1. When you copy it, it stays the same. The $ has nothing to do with money.</li>
+</ul>
 <p>The $ can also stand before just one part. Then the reference is <strong>mixed</strong>: in B$1 row 1 stays fixed and the column moves. In $B1 column B stays fixed and the row moves. The table shows what happens when you copy from B2.</p>
 <p>A formula in B2 reads from A1. This is how it looks after copying.:</p>
 <ul>

@@ -67,11 +67,11 @@ A reference like B3 really remembers a way: “one column to the left, in my row
 
 - **relative reference**: A cell reference without \$, for example B3. When you copy it, it moves along by as many columns and rows as the formula.
 
-- **absolute reference**: A cell reference with \$ before the column and the row, for example \$B\$1. When you copy it, it stays the same. The \$ has nothing to do with money.
-
 Selin now writes =B3*\$B\$1 in C3. Copy the formula and select C5. The dashed arrow with \$ always points to B1.
 
 Interactive: The same waffle stall. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
+
+- **absolute reference**: A cell reference with \$ before the column and the row, for example \$B\$1. When you copy it, it stays the same. The \$ has nothing to do with money.
 
 The \$ can also stand before just one part. Then the reference is **mixed**: in B\$1 row 1 stays fixed and the column moves. In \$B1 column B stays fixed and the row moves. The table shows what happens when you copy from B2.
 

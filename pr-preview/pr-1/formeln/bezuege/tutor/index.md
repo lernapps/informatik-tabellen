@@ -67,11 +67,11 @@ Ein Bezug wie B3 merkt sich eigentlich einen Weg: „eine Spalte links, in meine
 
 - **relativer Bezug**: Ein Zellbezug ohne \$, zum Beispiel B3. Beim Kopieren wandert er mit, um so viele Spalten und Zeilen wie die Formel.
 
-- **absoluter Bezug**: Ein Zellbezug mit \$ vor Spalte und Zeile, zum Beispiel \$B\$1. Beim Kopieren bleibt er gleich. Das \$ hat nichts mit Geld zu tun.
-
 Selin schreibt in C3 jetzt =B3*\$B\$1. Kopier die Formel und wähl C5 an. Der gestrichelte Pfeil mit \$ zeigt immer auf B1.
 
 Interaktiv: Derselbe Waffelstand. In C3 steht =B3*\$B\$1 und ergibt 45. Kopiert nach C4 bis C6: C4 =B4*\$B\$1 ergibt 62,5, C5 =B5*\$B\$1 ergibt 77,5, C6 =B6*\$B\$1 ergibt 30. Der Bezug auf B3 wandert mit, \$B\$1 bleibt fest.
+
+- **absoluter Bezug**: Ein Zellbezug mit \$ vor Spalte und Zeile, zum Beispiel \$B\$1. Beim Kopieren bleibt er gleich. Das \$ hat nichts mit Geld zu tun.
 
 Das \$ kann auch nur vor einem Teil stehen. Dann ist der Bezug **gemischt**: Bei B\$1 bleibt die Zeile 1 fest, die Spalte wandert. Bei \$B1 bleibt die Spalte B fest, die Zeile wandert. Die Tabelle zeigt, was beim Kopieren aus B2 passiert.
 
