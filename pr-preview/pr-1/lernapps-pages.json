@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "strand": "informatik/daten",
+  "pages": [
+    {
+      "path": "formeln/bezuege/",
+      "title": {
+        "de": "Formeln kopieren mit relativen und absoluten Bezügen",
+        "en": "Copying formulas with relative and absolute references"
+      },
+      "competencies": [
+        "relative-und-absolute-bezuege"
+      ]
+    }
+  ]
+}
