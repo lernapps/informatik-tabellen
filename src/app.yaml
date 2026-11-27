@@ -1,10 +1,17 @@
 # yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 format: 2
-# The strand of the learning map the app stays in, <subject>/<strand> (e.g. mathematik/stochastik); then each page
-# names its competencies. none: the app is on no strand, and no page names competencies. A unit app across the strands
-# of a subject whose map allows it names subject: <subject> (e.g. franzoesisch) instead of strand.
-strand: none
-title: Platzhalter
-intro: Dieses Kapitel hält den Platz frei, bis der geplante Inhalt da ist.
-languages: [de]
-chapters: [thema]
+strand: informatik/daten
+title:
+  de: Rechnen mit Tabellen
+  en: Calculating with spreadsheets
+intro:
+  de: >-
+    Die Klasse 9b macht die Kasse des Schulfests. Selin baut dafür ein Rechenblatt, Jona zählt, Mia prüft nach. Du
+    rechnest mit: erst mit Zahlen, Texten und Wahrheitswerten, dann mit Formeln und Bezügen, am Ende mit Funktionen
+    und einem Datenflussdiagramm.
+  en: >-
+    Class 9b is running the till at the school fair. Selin builds a spreadsheet for it, Jona counts and Mia checks. You
+    work along with them: first with numbers, text and Boolean values, then with formulas and references, and at the
+    end with functions and a data flow diagram.
+languages: [de, en]
+chapters: [formeln]

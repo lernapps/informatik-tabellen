@@ -8,7 +8,7 @@ phase: code
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
-failedChecks: {}
+failedChecks: { accessible: 2, checks-pass: 4, usable-at-360px: 1 }
 ---
 
 # Plan: informatik-tabellen, first version
@@ -222,7 +222,7 @@ Neues Kapitel: Seite mit drei Abschnitten, Chat, Rechenblatt-Props aus Zellenlis
       `npx --no -- lernapps create --archetype explainer`.
 - [x] Fill the content guide `.agents/skills/app-content/SKILL.md` from "Notes" and "Content method": every heading,
       no "FILL IN" left. Commit it before any content.
-- [ ] Load skill `lernapps-explainer`.
+- [x] Load skill `lernapps-explainer`.
 - [ ] Load skill `lernapps-content-questions`. Read whole, with your file tool:
       `.agents/skills/lernapps-explainer/references/blocks.md` and
       `.agents/skills/lernapps-explainer/references/exercises.md`. A foreign language: also
