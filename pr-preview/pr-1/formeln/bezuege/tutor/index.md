@@ -45,17 +45,21 @@ Beim Kopieren wandern Bezüge mit. Mit $ hältst du einen Bezug fest: absolut, r
 
 Du kannst schon Formeln mit Zellbezügen schreiben, zum Beispiel =B3*B1. Auf dieser Seite lernst du, eine Formel so zu kopieren, dass jeder Bezug richtig mitwandert oder fest bleibt. Im Chat der 9b geht es um den Waffelstand:
 
-**Selin:** Ich hab in C3 =B3*B1 geschrieben. Waffeln mal Preis. Dann hab ich die Formel nach unten kopiert.
+**Selin:** Ich hab in C3 =B3*B1 geschrieben: Waffeln mal Preis. Jetzt kopier ich die Formel nach unten, dann muss ich sie nicht viermal tippen.
 
-**Jona:** In C4 steht jetzt #WERT!. Ist das Blatt kaputt?
+**Jona:** Gute Idee. Dann stimmt jede Stunde.
 
-**Mia:** Wähl mal C4 an. Die Pfeile zeigen, woher die Formel liest.
+**Mia:** Warte mal. Was steht nach dem Kopieren eigentlich in C4?
+
+- Aufgabe `welche-formel-in-c4` (unten)
+
+Probier es aus. Drück auf „Formel aus C3 nach C4–C6 kopieren“ und wähl dann C4 an. Die Pfeile zeigen, aus welchen Zellen die Formel liest.
 
 Interaktiv: Ein Rechenblatt des Waffelstands. B1: Preis je Waffel 2,5 (€). Spalte A: Uhrzeit 14, 15, 16 und 17 Uhr. Spalte B: verkauft 18, 25, 31, 12. In C3 steht =B3*B1 und ergibt 45. Kopiert man die Formel nach C4 bis C6, steht in C4 =B4*B2, in C5 =B5*B3 und in C6 =B6*B4. C4 zeigt #WERT!, weil B2 den Text „verkauft“ enthält.
 
-Drück auf „Formel aus C3 nach C4–C6 kopieren“. Wähl dann C4 an und schau, wohin die Pfeile zeigen.
+**Jona:** In C4 steht #WERT!. Und C5 zeigt 558 Euro? So viel haben wir um 16 Uhr nie eingenommen.
 
-- Aufgabe `welche-formel-in-c4` (unten)
+**Mia:** C5 rechnet 31 mal 18. Der Preis-Bezug ist auf B3 gerutscht, und da steht kein Preis, sondern eine Anzahl.
 
 ### Wandern oder fest bleiben
 
@@ -88,7 +92,7 @@ Eine Formel in B2 liest aus A1. So sieht sie nach dem Kopieren aus.:
 
 - Aufgabe `anteil-formel` (unten)
 
-**Jona:** Jetzt stimmt jede Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.
+**Jona:** Mit dem $ stimmt Selins Blatt jetzt in jeder Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.
 
 **Mia:** Aber wenn ich eine Zahl ändere, welche Zellen rechnen dann alle neu?
 
@@ -96,7 +100,7 @@ Das zeigt ein Datenflussdiagramm. Darum geht es im nächsten Kapitel.
 
 ### Aufgabe welche-formel-in-c4
 
-- Aufgabe: In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Welche Formel steht dann in C4?
+- Aufgabe: In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Was glaubst du: Welche Formel steht dann in C4?
 - Antwortformat: eine Antwort wählen
 - Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):
   - ✓ =B4*B2 – Beide Bezüge rutschen eine Zeile nach unten mit, auch B1. Darum liest C4 aus B2, und dort steht ein Text.
@@ -108,58 +112,54 @@ Das zeigt ein Datenflussdiagramm. Darum geht es im nächsten Kapitel.
 
 ### Aufgabe zeile-nach-kopieren
 
-- Aufgabe: „In C{r} steht =B{r}*\$B\$1. Selin kopiert die Formel {n} Zeilen nach unten. Aus welcher Zeile von Spalte B liest der erste Bezug der neuen Formel?“
+- Aufgabe: „In C{r} steht eine Formel mit dem Bezug B{r}. Vor B{r} steht kein $. Selin kopiert die Formel {n} Zeilen nach unten. Aus welcher Zeile liest der Bezug jetzt? Gib die Nummer der Zeile ein.“
 - Antwortformat: eine Zahl eintippen
-- Tipp der App: „Ein Bezug ohne \$ wandert genauso weit wie die Formel.“
+- Tipp der App: „Ein Bezug ohne $ wandert genauso weit wie die Formel.“
 - Lösungsweg:
   - B{r} ist relativ. Die Formel rutscht {n} Zeilen nach unten, also auch der Bezug: Zeile {r} + {n} = {answer}.
 - Typische Fehler und was die App sagt:
-  - F1: „B{r} hat kein \$. Darum bleibt er nicht stehen, sondern wandert {n} Zeilen mit.“
-  - F2: „Zeile 1 gehört zu \$B\$1, dem zweiten Bezug. Gefragt ist der erste, B{r}.“
-  - F3: „{n} ist nur, um wie viele Zeilen kopiert wird. Zähl das zur Zeile {r} dazu.“
+  - F1: „B{r} hat kein $. Darum bleibt der Bezug nicht stehen, sondern wandert {n} Zeilen mit.“
+  - F2: „{n} ist nur, um wie viele Zeilen kopiert wird. Zähl das zur Zeile {r} dazu.“
+  - F3: „Fast: Zähl genau. Von Zeile {r} aus {n} Zeilen nach unten.“
 - Link zu Nummer n: `../?zeile-nach-kopieren=n&via=tutor#zeile-nach-kopieren`
 - Aufgaben nach Nummer: die Werte für `{…}`, die Lösung und was bei den Fehlern herauskommt. Ein Fehler ohne Spalte hat keinen festen Wert; die Meldung der App sagt, ob er vorliegt. `{answer}` ist die Lösung.
 
 ```
 Nr. | r | n | Lösung | F1 | F2 | F3
-1 | 3 | 2 | 5 | 3 | 1 | 2
-2 | 4 | 3 | 7 | 4 | 1 | 3
-3 | 6 | 1 | 7 | 6 | 1 | 1
-4 | 6 | 5 | 11 | 6 | 1 | 5
-5 | 3 | 5 | 8 | 3 | 1 | 5
-6 | 3 | 1 | 4 | 3 | 1 | 1
-7 | 6 | 2 | 8 | 6 | 1 | 2
-8 | 6 | 4 | 10 | 6 | 1 | 4
-9 | 5 | 1 | 6 | 5 | 1 | 1
-10 | 4 | 2 | 6 | 4 | 1 | 2
-11 | 4 | 5 | 9 | 4 | 1 | 5
-12 | 6 | 3 | 9 | 6 | 1 | 3
-13 | 4 | 1 | 5 | 4 | 1 | 1
-14 | 5 | 2 | 7 | 5 | 1 | 2
-15 | 5 | 3 | 8 | 5 | 1 | 3
-16 | 5 | 4 | 9 | 5 | 1 | 4
-17 | 3 | 4 | 7 | 3 | 1 | 4
+1 | 3 | 2 | 5 | 3 | 2 | 4
+2 | 3 | 4 | 7 | 3 | 4 | 6
+3 | 5 | 3 | 8 | 5 | 3 | 7
+4 | 4 | 5 | 9 | 4 | 5 | 8
+5 | 6 | 5 | 11 | 6 | 5 | 10
+6 | 3 | 5 | 8 | 3 | 5 | 7
+7 | 6 | 3 | 9 | 6 | 3 | 8
+8 | 6 | 2 | 8 | 6 | 2 | 7
+9 | 6 | 4 | 10 | 6 | 4 | 9
+10 | 5 | 2 | 7 | 5 | 2 | 6
+11 | 4 | 3 | 7 | 4 | 3 | 6
+12 | 4 | 2 | 6 | 4 | 2 | 5
+13 | 5 | 4 | 9 | 5 | 4 | 8
 ```
 
 ### Aufgabe gemischt-fest
 
-- Aufgabe: In einer Formel steht der Bezug D\$4. Was bleibt beim Kopieren fest?
+- Aufgabe: In einer Formel steht der Bezug D$4. Was bleibt beim Kopieren fest?
 - Antwortformat: eine Antwort wählen
 - Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):
-  - ✓ nur die Zeile 4 – Das \$ steht vor der 4. Es hält die Zeile fest, die Spalte D wandert.
-  - ✗ nur die Spalte D – Für eine feste Spalte müsste das \$ vor dem D stehen, also \$D4.
-  - ✗ Spalte und Zeile – Dafür bräuchte es zwei \$, also \$D\$4.
-  - ✗ nichts – Das \$ hält immer den Teil fest, vor dem es steht.
+  - ✓ nur die Zeile 4 – Das $ steht vor der 4. Es hält die Zeile fest, die Spalte D wandert.
+  - ✗ nur die Spalte D – Für eine feste Spalte müsste das Dollarzeichen vor dem D stehen: $D4.
+  - ✗ Spalte und Zeile – Dafür bräuchte es ein $ vor dem D und eins vor der 4.
+  - ✗ nichts – Das $ hält immer den Teil fest, vor dem es steht.
 - Lösung: nur die Zeile 4
-- Erklärung: Ein \$ hält genau den Teil fest, vor dem es steht. D\$4 ist ein gemischter Bezug.
+- Erklärung: Ein Dollarzeichen hält genau den Teil fest, vor dem es steht. D$4 ist ein gemischter Bezug.
 - Link: [../?via=tutor#gemischt-fest](../?via=tutor#gemischt-fest)
 
 ### Aufgabe zwei-runter-eins-rechts
 
-- Aufgabe: Eine Formel steht in B2. Ali kopiert sie nach C4, also eine Spalte nach rechts und zwei Zeilen nach unten. Was wird aus jedem Bezug?
+- Aufgabe: Eine Formel steht in B2. Ali kopiert sie nach C4: eine Spalte nach rechts und zwei Zeilen nach unten. Beides wandert also zugleich. Was wird aus jedem Bezug?
 - Antwortformat: jedem Eintrag links den passenden rechts zuordnen
-- Lösung: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =$A$1 – =$A$1
-- Erklärung: Ohne \$ wandert ein Teil mit (Spalte +1, Zeile +2). Mit \$ bleibt er stehen.
+- Lösung: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =B2 – =C4
+- Erklärung: Ohne $ wandert ein Teil mit (Spalte +1, Zeile +2). Mit Dollarzeichen bleibt er stehen.
 - Link: [../?via=tutor#zwei-runter-eins-rechts](../?via=tutor#zwei-runter-eins-rechts)
 
 ### Aufgabe anteil-formel

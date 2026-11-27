@@ -43,19 +43,23 @@ When you copy a formula, its references move along. With $ you keep a reference 
 
 ### Selin's formula breaks
 
-You can already write formulas with cell references, for example =B3*B1. On this page you learn to copy a formula so that each reference moves along or stays fixed, whichever is right. In class 9b's chat it is about the waffle stand:
+You can already write formulas with cell references, for example =B3*B1. On this page you learn to copy a formula so that each reference moves along or stays fixed, whichever is right. In the group chat of class 9b it is about the waffle stall:
 
-**Selin:** I wrote =B3*B1 in C3. Waffles times price. Then I copied the formula down.
+**Selin:** I wrote =B3*B1 in C3: waffles times price. Now I'll copy the formula down, so I don't have to type it four times.
 
-**Jona:** C4 now shows #VALUE!. Is the sheet broken?
+**Jona:** Good idea. Then every hour is right.
 
-**Mia:** Choose C4. The arrows show where the formula reads from.
-
-Interactive: A spreadsheet of the waffle stand. B1: price per waffle 2.5 (€). Column A: time 2, 3, 4 and 5 pm. Column B: sold 18, 25, 31, 12. C3 holds =B3*B1, which gives 45. If you copy the formula to C4 to C6, C4 holds =B4*B2, C5 holds =B5*B3 and C6 holds =B6*B4. C4 shows #VALUE!, because B2 holds the text “sold”.
-
-Press “Copy the formula from C3 to C4–C6”. Then choose C4 and look at where the arrows point.
+**Mia:** Wait. What is actually in C4 after copying?
 
 - Exercise `welche-formel-in-c4` (below)
+
+Try it. Press “Copy the formula from C3 to C4–C6” and then select C4. The arrows show which cells the formula reads from.
+
+Interactive: A spreadsheet of the waffle stall. B1: price per waffle 2.5 (€). Column A: time 2, 3, 4 and 5 pm. Column B: sold 18, 25, 31, 12. C3 holds =B3*B1, which gives 45. If you copy the formula to C4 to C6, C4 holds =B4*B2, C5 holds =B5*B3 and C6 holds =B6*B4. C4 shows #VALUE!, because B2 holds the text “sold”.
+
+**Jona:** C4 shows #VALUE!. And C5 shows 558 euros? We never took that much at 4 pm.
+
+**Mia:** C5 works out 31 times 18. The price reference has slid to B3, and that is not a price but a number sold.
 
 ### Move along or stay fixed
 
@@ -65,9 +69,9 @@ A reference like B3 really remembers a way: “one column to the left, in my row
 
 - **absolute reference**: A cell reference with \$ before the column and the row, for example \$B\$1. When you copy it, it stays the same. The \$ has nothing to do with money.
 
-Selin now writes =B3*\$B\$1 in C3. Copy the formula and choose C5. The dashed arrow with \$ always points to B1.
+Selin now writes =B3*\$B\$1 in C3. Copy the formula and select C5. The dashed arrow with \$ always points to B1.
 
-Interactive: The same waffle stand. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
+Interactive: The same waffle stall. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
 
 The \$ can also stand before just one part. Then the reference is **mixed**: in B\$1 row 1 stays fixed and the column moves. In \$B1 column B stays fixed and the row moves. The table shows what happens when you copy from B2.
 
@@ -88,7 +92,7 @@ A formula in B2 reads from A1. This is how it looks after copying.:
 
 - Exercise `anteil-formel` (below)
 
-**Jona:** Now every row is right, even if I miscounted and change a number.
+**Jona:** With the $, Selin's sheet is right in every row now, even if I miscounted and change a number.
 
 **Mia:** But when I change a number, which cells all work out again?
 
@@ -96,7 +100,7 @@ A data flow diagram shows that. That is what the next chapter is about.
 
 ### Exercise welche-formel-in-c4
 
-- Task: C3 holds =B3*B1. Selin copies the formula one row down to C4. Which formula is then in C4?
+- Task: C3 holds =B3*B1. Selin copies the formula one row down to C4. What do you think: which formula is then in C4?
 - Answer format: choose one answer
 - Choices (✓ right, ✗ wrong, with the app's message):
   - ✓ =B4*B2 – Both references slide one row down, B1 too. So C4 reads from B2, and B2 holds text.
@@ -108,58 +112,54 @@ A data flow diagram shows that. That is what the next chapter is about.
 
 ### Exercise zeile-nach-kopieren
 
-- Task: „C{r} holds =B{r}*\$B\$1. Selin copies the formula {n} rows down. Which row of column B does the first reference of the new formula read from?“
+- Task: „C{r} holds a formula with the reference B{r}. There is no $ in B{r}. Selin copies the formula {n} rows down. Which row does the reference read from now? Type the number of the row.“
 - Answer format: type a number
-- The app's hint: „A reference without \$ moves just as far as the formula.“
+- The app's hint: „A reference without $ moves just as far as the formula.“
 - Steps of the solution:
   - B{r} is relative. The formula slides {n} rows down, so the reference does too: row {r} + {n} = {answer}.
 - Typical mistakes and what the app says:
-  - F1: „B{r} has no \$. So it does not stay put but moves {n} rows along.“
-  - F2: „Row 1 belongs to \$B\$1, the second reference. The question is about the first one, B{r}.“
-  - F3: „{n} is just how many rows it is copied by. Add it to row {r}.“
+  - F1: „B{r} has no $. So the reference does not stay put but moves {n} rows along.“
+  - F2: „{n} is only how many rows it is copied by. Add it to row {r}.“
+  - F3: „Nearly: count carefully. From row {r}, go {n} rows down.“
 - Link to number n: `../?zeile-nach-kopieren=n&via=tutor#zeile-nach-kopieren`
 - Tasks by number: the values for `{…}`, the solution and what the mistakes give. A mistake without a column has no fixed value; the app's message says whether it is there. `{answer}` is the solution.
 
 ```
 No. | r | n | Solution | F1 | F2 | F3
-1 | 3 | 2 | 5 | 3 | 1 | 2
-2 | 4 | 3 | 7 | 4 | 1 | 3
-3 | 6 | 1 | 7 | 6 | 1 | 1
-4 | 6 | 5 | 11 | 6 | 1 | 5
-5 | 3 | 5 | 8 | 3 | 1 | 5
-6 | 3 | 1 | 4 | 3 | 1 | 1
-7 | 6 | 2 | 8 | 6 | 1 | 2
-8 | 6 | 4 | 10 | 6 | 1 | 4
-9 | 5 | 1 | 6 | 5 | 1 | 1
-10 | 4 | 2 | 6 | 4 | 1 | 2
-11 | 4 | 5 | 9 | 4 | 1 | 5
-12 | 6 | 3 | 9 | 6 | 1 | 3
-13 | 4 | 1 | 5 | 4 | 1 | 1
-14 | 5 | 2 | 7 | 5 | 1 | 2
-15 | 5 | 3 | 8 | 5 | 1 | 3
-16 | 5 | 4 | 9 | 5 | 1 | 4
-17 | 3 | 4 | 7 | 3 | 1 | 4
+1 | 3 | 2 | 5 | 3 | 2 | 4
+2 | 3 | 4 | 7 | 3 | 4 | 6
+3 | 5 | 3 | 8 | 5 | 3 | 7
+4 | 4 | 5 | 9 | 4 | 5 | 8
+5 | 6 | 5 | 11 | 6 | 5 | 10
+6 | 3 | 5 | 8 | 3 | 5 | 7
+7 | 6 | 3 | 9 | 6 | 3 | 8
+8 | 6 | 2 | 8 | 6 | 2 | 7
+9 | 6 | 4 | 10 | 6 | 4 | 9
+10 | 5 | 2 | 7 | 5 | 2 | 6
+11 | 4 | 3 | 7 | 4 | 3 | 6
+12 | 4 | 2 | 6 | 4 | 2 | 5
+13 | 5 | 4 | 9 | 5 | 4 | 8
 ```
 
 ### Exercise gemischt-fest
 
-- Task: A formula holds the reference D\$4. What stays fixed when you copy it?
+- Task: A formula holds the reference D$4. What stays fixed when you copy it?
 - Answer format: choose one answer
 - Choices (✓ right, ✗ wrong, with the app's message):
-  - ✓ only row 4 – The \$ stands before the 4. It keeps the row fixed, and column D moves.
-  - ✗ only column D – For a fixed column the \$ would have to stand before the D, as in \$D4.
-  - ✗ column and row – That would need two \$ signs, as in \$D\$4.
-  - ✗ nothing – The \$ always keeps the part fixed that it stands before.
+  - ✓ only row 4 – The $ stands before the 4. It keeps the row fixed, and column D moves.
+  - ✗ only column D – For a fixed column the dollar sign would have to stand before the D: $D4.
+  - ✗ column and row – That would need one $ before the D and one before the 4.
+  - ✗ nothing – The $ always keeps the part fixed that it stands before.
 - Solution: only row 4
-- Explanation: A \$ keeps exactly the part fixed that it stands before. D\$4 is a mixed reference.
+- Explanation: A dollar sign keeps exactly the part fixed that it stands before. D$4 is a mixed reference.
 - Link: [../?via=tutor#gemischt-fest](../?via=tutor#gemischt-fest)
 
 ### Exercise zwei-runter-eins-rechts
 
-- Task: A formula is in B2. Ali copies it to C4, so one column to the right and two rows down. What does each reference become?
+- Task: A formula is in B2. Ali copies it to C4: one column to the right and two rows down. So both move at once. What does each reference become?
 - Answer format: match each item on the left with one on the right
-- Solution: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =$A$1 – =$A$1
-- Explanation: A part without \$ moves along (column +1, row +2). A part with \$ stays put.
+- Solution: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =B2 – =C4
+- Explanation: A part without $ moves along (column +1, row +2). A part with a dollar sign stays put.
 - Link: [../?via=tutor#zwei-runter-eins-rechts](../?via=tutor#zwei-runter-eins-rechts)
 
 ### Exercise anteil-formel
@@ -177,6 +177,6 @@ No. | r | n | Solution | F1 | F2 | F3
 
 ```
 No. | Aufgabe | Solution | F1 | F2 | F3
-1 | 10% of each stand's takings goes to the student council. The share is in B7. Write a formula in C2 for the student council's amount. It is then copied to C3 to C5. | =B2*$B$7 | =34 | =B2*B7 | B2*$B$7
+1 | 10% of each stall's takings goes to the student council. The share is in B7. Write a formula in C2 for the student council's amount. It is then copied to C3 to C5. | =B2*$B$7 | =34 | =B2*B7 | B2*$B$7
 2 | Ben sells raffle tickets. A ticket costs what is in B1. Write a formula in C3 for the takings of that hour. It is then copied to C4 to C6. | =B3*$B$1 | =33 | =B3*B1 | B3*$B$1
 ```

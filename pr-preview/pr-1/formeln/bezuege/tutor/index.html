@@ -49,14 +49,16 @@
 <p>Beim Kopieren wandern Bezüge mit. Mit $ hältst du einen Bezug fest: absolut, relativ oder gemischt.</p>
 <h3>Selins Formel geht kaputt</h3>
 <p>Du kannst schon Formeln mit Zellbezügen schreiben, zum Beispiel =B3*B1. Auf dieser Seite lernst du, eine Formel so zu kopieren, dass jeder Bezug richtig mitwandert oder fest bleibt. Im Chat der 9b geht es um den Waffelstand:</p>
-<p><strong>Selin:</strong> Ich hab in C3 =B3*B1 geschrieben. Waffeln mal Preis. Dann hab ich die Formel nach unten kopiert.</p>
-<p><strong>Jona:</strong> In C4 steht jetzt #WERT!. Ist das Blatt kaputt?</p>
-<p><strong>Mia:</strong> Wähl mal C4 an. Die Pfeile zeigen, woher die Formel liest.</p>
-<p>Interaktiv: Ein Rechenblatt des Waffelstands. B1: Preis je Waffel 2,5 (€). Spalte A: Uhrzeit 14, 15, 16 und 17 Uhr. Spalte B: verkauft 18, 25, 31, 12. In C3 steht =B3<em>B1 und ergibt 45. Kopiert man die Formel nach C4 bis C6, steht in C4 =B4</em>B2, in C5 =B5<em>B3 und in C6 =B6</em>B4. C4 zeigt #WERT!, weil B2 den Text „verkauft“ enthält.</p>
-<p>Drück auf „Formel aus C3 nach C4–C6 kopieren“. Wähl dann C4 an und schau, wohin die Pfeile zeigen.</p>
+<p><strong>Selin:</strong> Ich hab in C3 =B3*B1 geschrieben: Waffeln mal Preis. Jetzt kopier ich die Formel nach unten, dann muss ich sie nicht viermal tippen.</p>
+<p><strong>Jona:</strong> Gute Idee. Dann stimmt jede Stunde.</p>
+<p><strong>Mia:</strong> Warte mal. Was steht nach dem Kopieren eigentlich in C4?</p>
 <ul>
 <li>Aufgabe <code>welche-formel-in-c4</code> (unten)</li>
 </ul>
+<p>Probier es aus. Drück auf „Formel aus C3 nach C4–C6 kopieren“ und wähl dann C4 an. Die Pfeile zeigen, aus welchen Zellen die Formel liest.</p>
+<p>Interaktiv: Ein Rechenblatt des Waffelstands. B1: Preis je Waffel 2,5 (€). Spalte A: Uhrzeit 14, 15, 16 und 17 Uhr. Spalte B: verkauft 18, 25, 31, 12. In C3 steht =B3<em>B1 und ergibt 45. Kopiert man die Formel nach C4 bis C6, steht in C4 =B4</em>B2, in C5 =B5<em>B3 und in C6 =B6</em>B4. C4 zeigt #WERT!, weil B2 den Text „verkauft“ enthält.</p>
+<p><strong>Jona:</strong> In C4 steht #WERT!. Und C5 zeigt 558 Euro? So viel haben wir um 16 Uhr nie eingenommen.</p>
+<p><strong>Mia:</strong> C5 rechnet 31 mal 18. Der Preis-Bezug ist auf B3 gerutscht, und da steht kein Preis, sondern eine Anzahl.</p>
 <h3>Wandern oder fest bleiben</h3>
 <p>Ein Bezug wie B3 merkt sich eigentlich einen Weg: „eine Spalte links, in meiner Zeile“. Kopierst du die Formel, geht sie denselben Weg von ihrer neuen Zelle aus. Für B3 ist das richtig: Jede Zeile soll ihre eigene Anzahl nehmen. Für B1 ist es falsch: Der Preis steht nur einmal, in B1.</p>
 <ul>
@@ -87,12 +89,12 @@
 <li><p>Aufgabe <code>anteil-formel</code> (unten)</p>
 </li>
 </ul>
-<p><strong>Jona:</strong> Jetzt stimmt jede Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.</p>
+<p><strong>Jona:</strong> Mit dem $ stimmt Selins Blatt jetzt in jeder Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.</p>
 <p><strong>Mia:</strong> Aber wenn ich eine Zahl ändere, welche Zellen rechnen dann alle neu?</p>
 <p>Das zeigt ein Datenflussdiagramm. Darum geht es im nächsten Kapitel.</p>
 <h3>Aufgabe welche-formel-in-c4</h3>
 <ul>
-<li>Aufgabe: In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Welche Formel steht dann in C4?</li>
+<li>Aufgabe: In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Was glaubst du: Welche Formel steht dann in C4?</li>
 <li>Antwortformat: eine Antwort wählen</li>
 <li>Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):<ul>
 <li>✓ =B4*B2 – Beide Bezüge rutschen eine Zeile nach unten mit, auch B1. Darum liest C4 aus B2, und dort steht ein Text.</li>
@@ -106,7 +108,7 @@
 </ul>
 <h3>Aufgabe zeile-nach-kopieren</h3>
 <ul>
-<li>Aufgabe: „In C{r} steht =B{r}*$B$1. Selin kopiert die Formel {n} Zeilen nach unten. Aus welcher Zeile von Spalte B liest der erste Bezug der neuen Formel?“</li>
+<li>Aufgabe: „In C{r} steht eine Formel mit dem Bezug B{r}. Vor B{r} steht kein $. Selin kopiert die Formel {n} Zeilen nach unten. Aus welcher Zeile liest der Bezug jetzt? Gib die Nummer der Zeile ein.“</li>
 <li>Antwortformat: eine Zahl eintippen</li>
 <li>Tipp der App: „Ein Bezug ohne $ wandert genauso weit wie die Formel.“</li>
 <li>Lösungsweg:<ul>
@@ -114,32 +116,28 @@
 </ul>
 </li>
 <li>Typische Fehler und was die App sagt:<ul>
-<li>F1: „B{r} hat kein $. Darum bleibt er nicht stehen, sondern wandert {n} Zeilen mit.“</li>
-<li>F2: „Zeile 1 gehört zu $B$1, dem zweiten Bezug. Gefragt ist der erste, B{r}.“</li>
-<li>F3: „{n} ist nur, um wie viele Zeilen kopiert wird. Zähl das zur Zeile {r} dazu.“</li>
+<li>F1: „B{r} hat kein $. Darum bleibt der Bezug nicht stehen, sondern wandert {n} Zeilen mit.“</li>
+<li>F2: „{n} ist nur, um wie viele Zeilen kopiert wird. Zähl das zur Zeile {r} dazu.“</li>
+<li>F3: „Fast: Zähl genau. Von Zeile {r} aus {n} Zeilen nach unten.“</li>
 </ul>
 </li>
 <li>Link zu Nummer n: <code>../?zeile-nach-kopieren=n&amp;via=tutor#zeile-nach-kopieren</code></li>
 <li>Aufgaben nach Nummer: die Werte für <code>{…}</code>, die Lösung und was bei den Fehlern herauskommt. Ein Fehler ohne Spalte hat keinen festen Wert; die Meldung der App sagt, ob er vorliegt. <code>{answer}</code> ist die Lösung.</li>
 </ul>
 <pre><code>Nr. | r | n | Lösung | F1 | F2 | F3
-1 | 3 | 2 | 5 | 3 | 1 | 2
-2 | 4 | 3 | 7 | 4 | 1 | 3
-3 | 6 | 1 | 7 | 6 | 1 | 1
-4 | 6 | 5 | 11 | 6 | 1 | 5
-5 | 3 | 5 | 8 | 3 | 1 | 5
-6 | 3 | 1 | 4 | 3 | 1 | 1
-7 | 6 | 2 | 8 | 6 | 1 | 2
-8 | 6 | 4 | 10 | 6 | 1 | 4
-9 | 5 | 1 | 6 | 5 | 1 | 1
-10 | 4 | 2 | 6 | 4 | 1 | 2
-11 | 4 | 5 | 9 | 4 | 1 | 5
-12 | 6 | 3 | 9 | 6 | 1 | 3
-13 | 4 | 1 | 5 | 4 | 1 | 1
-14 | 5 | 2 | 7 | 5 | 1 | 2
-15 | 5 | 3 | 8 | 5 | 1 | 3
-16 | 5 | 4 | 9 | 5 | 1 | 4
-17 | 3 | 4 | 7 | 3 | 1 | 4
+1 | 3 | 2 | 5 | 3 | 2 | 4
+2 | 3 | 4 | 7 | 3 | 4 | 6
+3 | 5 | 3 | 8 | 5 | 3 | 7
+4 | 4 | 5 | 9 | 4 | 5 | 8
+5 | 6 | 5 | 11 | 6 | 5 | 10
+6 | 3 | 5 | 8 | 3 | 5 | 7
+7 | 6 | 3 | 9 | 6 | 3 | 8
+8 | 6 | 2 | 8 | 6 | 2 | 7
+9 | 6 | 4 | 10 | 6 | 4 | 9
+10 | 5 | 2 | 7 | 5 | 2 | 6
+11 | 4 | 3 | 7 | 4 | 3 | 6
+12 | 4 | 2 | 6 | 4 | 2 | 5
+13 | 5 | 4 | 9 | 5 | 4 | 8
 </code></pre>
 <h3>Aufgabe gemischt-fest</h3>
 <ul>
@@ -147,21 +145,21 @@
 <li>Antwortformat: eine Antwort wählen</li>
 <li>Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):<ul>
 <li>✓ nur die Zeile 4 – Das $ steht vor der 4. Es hält die Zeile fest, die Spalte D wandert.</li>
-<li>✗ nur die Spalte D – Für eine feste Spalte müsste das $ vor dem D stehen, also $D4.</li>
-<li>✗ Spalte und Zeile – Dafür bräuchte es zwei $, also $D$4.</li>
+<li>✗ nur die Spalte D – Für eine feste Spalte müsste das Dollarzeichen vor dem D stehen: $D4.</li>
+<li>✗ Spalte und Zeile – Dafür bräuchte es ein $ vor dem D und eins vor der 4.</li>
 <li>✗ nichts – Das $ hält immer den Teil fest, vor dem es steht.</li>
 </ul>
 </li>
 <li>Lösung: nur die Zeile 4</li>
-<li>Erklärung: Ein $ hält genau den Teil fest, vor dem es steht. D$4 ist ein gemischter Bezug.</li>
+<li>Erklärung: Ein Dollarzeichen hält genau den Teil fest, vor dem es steht. D$4 ist ein gemischter Bezug.</li>
 <li>Link: <a href="../?via=tutor#gemischt-fest">../?via=tutor#gemischt-fest</a></li>
 </ul>
 <h3>Aufgabe zwei-runter-eins-rechts</h3>
 <ul>
-<li>Aufgabe: Eine Formel steht in B2. Ali kopiert sie nach C4, also eine Spalte nach rechts und zwei Zeilen nach unten. Was wird aus jedem Bezug?</li>
+<li>Aufgabe: Eine Formel steht in B2. Ali kopiert sie nach C4: eine Spalte nach rechts und zwei Zeilen nach unten. Beides wandert also zugleich. Was wird aus jedem Bezug?</li>
 <li>Antwortformat: jedem Eintrag links den passenden rechts zuordnen</li>
-<li>Lösung: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =$A$1 – =$A$1</li>
-<li>Erklärung: Ohne $ wandert ein Teil mit (Spalte +1, Zeile +2). Mit $ bleibt er stehen.</li>
+<li>Lösung: =A1 – =B3; =$A1 – =$A3; =A$1 – =B$1; =B2 – =C4</li>
+<li>Erklärung: Ohne $ wandert ein Teil mit (Spalte +1, Zeile +2). Mit Dollarzeichen bleibt er stehen.</li>
 <li>Link: <a href="../?via=tutor#zwei-runter-eins-rechts">../?via=tutor#zwei-runter-eins-rechts</a></li>
 </ul>
 <h3>Aufgabe anteil-formel</h3>
