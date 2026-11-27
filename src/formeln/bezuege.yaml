@@ -118,11 +118,6 @@ blocks:
         explanation:
           de: Ein Zellbezug ohne \$, zum Beispiel B3. Beim Kopieren wandert er mit, um so viele Spalten und Zeilen wie die Formel.
           en: A cell reference without \$, for example B3. When you copy it, it moves along by as many columns and rows as the formula.
-      - type: definition
-        term: { de: absoluter Bezug, en: absolute reference }
-        explanation:
-          de: Ein Zellbezug mit \$ vor Spalte und Zeile, zum Beispiel \$B\$1. Beim Kopieren bleibt er gleich. Das \$ hat nichts mit Geld zu tun.
-          en: A cell reference with \$ before the column and the row, for example \$B\$1. When you copy it, it stays the same. The \$ has nothing to do with money.
       - type: text
         text:
           de: Selin schreibt in C3 jetzt =B3*\$B\$1. Kopier die Formel und wähl C5 an. Der gestrichelte Pfeil mit \$ zeigt immer auf B1.
@@ -155,6 +150,11 @@ blocks:
             Derselbe Waffelstand. In C3 steht =B3*\$B\$1 und ergibt 45. Kopiert nach C4 bis C6: C4 =B4*\$B\$1 ergibt 62,5, C5 =B5*\$B\$1 ergibt 77,5, C6 =B6*\$B\$1 ergibt 30. Der Bezug auf B3 wandert mit, \$B\$1 bleibt fest.
           en: |-
             The same waffle stall. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
+      - type: definition
+        term: { de: absoluter Bezug, en: absolute reference }
+        explanation:
+          de: Ein Zellbezug mit \$ vor Spalte und Zeile, zum Beispiel \$B\$1. Beim Kopieren bleibt er gleich. Das \$ hat nichts mit Geld zu tun.
+          en: A cell reference with \$ before the column and the row, for example \$B\$1. When you copy it, it stays the same. The \$ has nothing to do with money.
       - type: text
         text:
           de: |-
