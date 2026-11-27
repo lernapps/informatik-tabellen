@@ -6,7 +6,7 @@ import { computed, ref } from "vue";
 import Gitter from "./Gitter.vue";
 import { abstand, baue, formelInhalt, groesse, kopiere, quellen, lies, rechner, type Blatt } from "./Formel.ts";
 import { generate, text } from "./FormelAufgabe.ts";
-import { anzeige, kopf, pfeile } from "./Gitter.ts";
+import { anzeige, kopf, legende, pfeile } from "./Gitter.ts";
 
 const props = defineProps<{
   /** Die Sprache der Seite: de oder en. */
@@ -51,7 +51,8 @@ const auswahl = ref(task.value.ziel);
 const blatt = computed<Blatt>(() => {
   const b = baue(task.value.zellen, task.value.l);
   const g = lies(eingabe.value, task.value.l);
-  const ziele = [task.value.ziel, ...(task.value.nach ?? [])];
+  // die kopierten Zellen erst nach „Prüfen“: vorher würden sie zeigen, ob die Formel stimmt
+  const ziele = [task.value.ziel, ...(props.checked ? (task.value.nach ?? []) : [])];
   if (g.ok)
     for (const z of ziele) {
       const [dc, dr] = abstand(task.value.ziel, z);
@@ -80,6 +81,10 @@ const lesefehler = computed(() => {
     : "";
 });
 const nach = computed(() => task.value.nach ?? []);
+const inhaltAuswahl = computed(() => {
+  const c = blatt.value[auswahl.value];
+  return c?.art === "formel" ? c.text : "";
+});
 
 function tippe(): void {
   const f = eingabe.value.trim();
@@ -98,8 +103,12 @@ function tippe(): void {
       :markiert="markiert"
       :pfeile="linien"
       :name="t('blatt')"
+      :legende="legende(texte, false)"
       @waehle="(z: string) => (auswahl = z)"
     />
+    <p v-if="inhaltAuswahl" class="hinweis">
+      {{ t("inhalt", { z: auswahl }) }} <code>{{ inhaltAuswahl }}</code>
+    </p>
     <p v-if="nach.length" class="hinweis">
       {{ t("wird-kopiert", { z: task.ziel, von: nach[0] ?? "", bis: nach[nach.length - 1] ?? "" }) }}
     </p>

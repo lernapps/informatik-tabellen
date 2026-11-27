@@ -157,7 +157,17 @@ export function reason(task: Task, answer: Answer, props: Props, _lang?: string)
       return t("dollar-zu-viel");
     return t("kopie-falsch");
   }
+  if (hatZahl(g.baum)) return t("zahl-statt-bezug");
   return t("andere-zellen", { zellen: quellen(g.baum).join(", ") });
+}
+
+/** Ob in der Formel eine feste Zahl steht. */
+function hatZahl(k: Knoten): boolean {
+  if (k.k === "zahl") return true;
+  if (k.k === "minus" || k.k === "klammer") return hatZahl(k.x);
+  if (k.k === "op") return hatZahl(k.a) || hatZahl(k.b);
+  if (k.k === "fn" || k.k === "unbekannt") return k.args.some(hatZahl);
+  return false;
 }
 
 const same = (a: { col: number; row: number }, b: { col: number; row: number }) => a.col === b.col && a.row === b.row;

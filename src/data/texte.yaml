@@ -21,8 +21,22 @@
   text: { de: "{z} zeigt {wert}. Typ: {typ}.", en: "{z} shows {wert}. Type: {typ}." }
 - id: pfeile
   text:
-    de: "Die Pfeile zeigen, aus welchen Zellen {z} liest. Ein gestrichelter Pfeil mit $ gehört zu einem festen Bezug."
-    en: "The arrows show which cells {z} reads from. A dashed arrow with $ belongs to a fixed reference."
+    de: "Die Pfeile zeigen, aus welchen Zellen {z} liest."
+    en: "The arrows show which cells {z} reads from."
+- id: pfeile-fest
+  text:
+    de: "Die Pfeile zeigen, aus welchen Zellen {z} liest. Der gestrichelte Pfeil mit $ gehört zu einem Bezug, der beim Kopieren fest bleibt."
+    en: "The arrows show which cells {z} reads from. The dashed arrow with $ belongs to a reference that stays fixed when you copy."
+- id: legende-zahl
+  text: { de: Zahl, en: number }
+- id: legende-text
+  text: { de: Text, en: text }
+- id: legende-bool
+  text: { de: Wahrheitswert, en: Boolean value }
+- id: legende-fehler
+  text: { de: Fehlerwert, en: error value }
+- id: legende-neu
+  text: { de: gerade neu gerechnet, en: just worked out again }
 - id: kopieren
   text: { de: "Formel aus {von} nach {bis} kopieren", en: "Copy the formula from {von} to {bis}" }
 - id: zuruecksetzen
@@ -141,6 +155,10 @@
   text:
     de: "In der ersten Zelle stimmt deine Formel, in den kopierten Zellen nicht. Wähl eine kopierte Zelle und folge den Pfeilen."
     en: "Your formula is right in the first cell, but not in the copied cells. Choose a copied cell and follow the arrows."
+- id: zahl-statt-bezug
+  text:
+    de: "In deiner Formel steht eine feste Zahl. Steht dieser Wert schon in einer Zelle? Dann nimm einen Bezug auf diese Zelle."
+    en: "Your formula has a fixed number in it. Is that value already in a cell? Then use a reference to that cell."
 - id: andere-zellen
   text:
     de: "Deine Formel liest aus {zellen}. Passt das zur Aufgabe?"

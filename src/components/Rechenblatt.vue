@@ -18,7 +18,7 @@ import {
   type Blatt,
 } from "./Formel.ts";
 import { sprache as zuSprache, text } from "./FormelAufgabe.ts";
-import { anzeige, kopf, pfeile, typName } from "./Gitter.ts";
+import { anzeige, kopf, legende, pfeile, typName } from "./Gitter.ts";
 
 const props = defineProps<{
   /** Die Sprache der Seite: de oder en. */
@@ -146,6 +146,7 @@ const bis = computed(() => {
       :neu="neu"
       :pfeile="linien"
       :name="name"
+      :legende="legende(texte, !!kopieren || !!bearbeiten)"
       @waehle="waehle"
     />
     <div class="leiste">
@@ -167,7 +168,9 @@ const bis = computed(() => {
         {{ t("ergebnis", { z: auswahl, wert: alsText(wert, lang) || "–", typ }) }}
         <span v-if="grund" class="grund">{{ grund }}</span>
       </p>
-      <p v-if="linien.length" class="hinweis">{{ t("pfeile", { z: auswahl }) }}</p>
+      <p v-if="linien.length" class="hinweis">
+        {{ t(linien.some((l) => l.fest) ? "pfeile-fest" : "pfeile", { z: auswahl }) }}
+      </p>
     </div>
     <div v-if="kopieren || (bearbeiten && geaendert)" class="knoepfe">
       <button v-if="kopieren" type="button" :disabled="kopiert" @click="kopiere_">

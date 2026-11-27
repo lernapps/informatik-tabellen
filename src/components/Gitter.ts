@@ -48,3 +48,15 @@ export function pfeile(blatt: Blatt, z: string | undefined): Pfeil[] {
 }
 
 export const kopf = (spalten: number) => Array.from({ length: spalten }, (_, i) => spalteName(i));
+
+/** Die Erklärung der Zeichen: Zahl, Text, Wahrheitswert, Fehlerwert, und auf Wunsch „rechnet neu“. */
+export function legende(texte: readonly Text[], neu: boolean): { art: string; symbol: string; text: string }[] {
+  const l = [
+    { art: "ganz", symbol: "#", text: text(texte, "legende-zahl") ?? "" },
+    { art: "text", symbol: "Abc", text: text(texte, "legende-text") ?? "" },
+    { art: "bool", symbol: "✓ ✗", text: text(texte, "legende-bool") ?? "" },
+    { art: "fehler", symbol: "!", text: text(texte, "legende-fehler") ?? "" },
+  ];
+  if (neu) l.push({ art: "neu", symbol: "", text: text(texte, "legende-neu") ?? "" });
+  return l;
+}

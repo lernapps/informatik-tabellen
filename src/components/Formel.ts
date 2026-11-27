@@ -216,6 +216,7 @@ export function lies(eingabe: string, lang: Lang): Gelesen {
   const toks = zerlege(s.slice(1), lang);
   if (istLesefehler(toks)) return { ok: false, fehler: { ...toks, pos: toks.pos + 1 } };
   let i = 0;
+  let tiefe = 0;
   const sep = trenner(lang);
   const ende = s.length;
   const pos = () => (toks[i]?.p ?? ende - 1) + 1;
@@ -312,6 +313,7 @@ export function lies(eingabe: string, lang: Lang): Gelesen {
         return { k: "unbekannt", name: t.v, args: [] };
       }
       i++;
+      tiefe++;
       const args: Knoten[] = [];
       if (!ist(")")) {
         for (;;) {
@@ -326,6 +328,7 @@ export function lies(eingabe: string, lang: Lang): Gelesen {
       }
       if (!ist(")")) halt("klammer-zu");
       i++;
+      tiefe--;
       const fn = (Object.keys(NAMEN[lang]) as Fn[]).find((f) => NAMEN[lang][f] === t.v);
       if (!fn) return { k: "unbekannt", name: t.v, args };
       const [min, max] = ARGS[fn];
@@ -340,7 +343,8 @@ export function lies(eingabe: string, lang: Lang): Gelesen {
       return { k: "klammer", x };
     }
     if (t.v === ")") return halt("klammer-auf");
-    if (t.v === ";" || t.v === ",") return halt("trenner", sep);
+    if ((t.v === ";" || t.v === ",") && tiefe > 0) return halt("trenner", sep);
+    if (t.v === ";" || t.v === ",") return halt("zeichen", t.v);
     return halt("erwartet-wert", t.v);
   };
 
@@ -348,7 +352,7 @@ export function lies(eingabe: string, lang: Lang): Gelesen {
     const baum = vergleich();
     if (i < toks.length) {
       if (ist(")")) halt("klammer-auf");
-      if (ist(";") || ist(",")) halt("trenner", sep);
+      if (ist(";") || ist(",")) halt("zeichen", tokText(toks[i]));
       halt("zu-viel", tokText(toks[i]));
     }
     return { ok: true, baum };

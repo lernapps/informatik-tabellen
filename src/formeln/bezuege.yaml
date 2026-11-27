@@ -18,24 +18,52 @@ blocks:
           de: |-
             Du kannst schon Formeln mit Zellbezügen schreiben, zum Beispiel =B3*B1. Auf dieser Seite lernst du, eine Formel so zu kopieren, dass jeder Bezug richtig mitwandert oder fest bleibt. Im Chat der 9b geht es um den Waffelstand:
 
-            **Selin:** Ich hab in C3 =B3*B1 geschrieben. Waffeln mal Preis. Dann hab ich die Formel nach unten kopiert.
+            **Selin:** Ich hab in C3 =B3*B1 geschrieben: Waffeln mal Preis. Jetzt kopier ich die Formel nach unten, dann muss ich sie nicht viermal tippen.
 
-            **Jona:** In C4 steht jetzt #WERT!. Ist das Blatt kaputt?
+            **Jona:** Gute Idee. Dann stimmt jede Stunde.
 
-            **Mia:** Wähl mal C4 an. Die Pfeile zeigen, woher die Formel liest.
+            **Mia:** Warte mal. Was steht nach dem Kopieren eigentlich in C4?
           en: |-
-            You can already write formulas with cell references, for example =B3*B1. On this page you learn to copy a formula so that each reference moves along or stays fixed, whichever is right. In class 9b's chat it is about the waffle stand:
+            You can already write formulas with cell references, for example =B3*B1. On this page you learn to copy a formula so that each reference moves along or stays fixed, whichever is right. In the group chat of class 9b it is about the waffle stall:
 
-            **Selin:** I wrote =B3*B1 in C3. Waffles times price. Then I copied the formula down.
+            **Selin:** I wrote =B3*B1 in C3: waffles times price. Now I'll copy the formula down, so I don't have to type it four times.
 
-            **Jona:** C4 now shows #VALUE!. Is the sheet broken?
+            **Jona:** Good idea. Then every hour is right.
 
-            **Mia:** Choose C4. The arrows show where the formula reads from.
+            **Mia:** Wait. What is actually in C4 after copying?
+      - type: single-choice
+        id: welche-formel-in-c4
+        text:
+          de: "In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Was glaubst du: Welche Formel steht dann in C4?"
+          en: "C3 holds =B3*B1. Selin copies the formula one row down to C4. What do you think: which formula is then in C4?"
+        options:
+          - text: { de: "=B4*B2", en: "=B4*B2" }
+            correct: true
+            info:
+              de: Beide Bezüge rutschen eine Zeile nach unten mit, auch B1. Darum liest C4 aus B2, und dort steht ein Text.
+              en: Both references slide one row down, B1 too. So C4 reads from B2, and B2 holds text.
+          - text: { de: "=B3*B1", en: "=B3*B1" }
+            correct: false
+            info:
+              de: So bliebe die Formel gleich. Ein normaler Bezug wandert beim Kopieren aber mit.
+              en: Then the formula would stay the same. But a normal reference moves along when you copy it.
+          - text: { de: "=B4*B1", en: "=B4*B1" }
+            correct: false
+            info:
+              de: "Das wäre richtig gerechnet, aber so kopiert das Blatt nicht: Es verschiebt jeden Bezug, auch B1."
+              en: "That would be the right sum, but it is not how the sheet copies: it moves every reference, B1 too."
+        explanation:
+          de: Beim Kopieren um eine Zeile nach unten wandert jeder Bezug eine Zeile mit. Aus B1 wird B2.
+          en: When you copy one row down, every reference moves one row along. B1 becomes B2.
+      - type: text
+        text:
+          de: Probier es aus. Drück auf „Formel aus C3 nach C4–C6 kopieren“ und wähl dann C4 an. Die Pfeile zeigen, aus welchen Zellen die Formel liest.
+          en: Try it. Press “Copy the formula from C3 to C4–C6” and then select C4. The arrows show which cells the formula reads from.
       - type: vue-component
         component: Rechenblatt
         props:
           sprache: { de: de, en: en }
-          name: { de: Waffelstand mit Selins Formel, en: Waffle stand with Selin's formula }
+          name: { de: Waffelstand mit Selins Formel, en: Waffle stall with Selin's formula }
           start: C3
           kopieren: { von: C3, nach: [C4, C5, C6] }
           zellen:
@@ -60,37 +88,19 @@ blocks:
 
             Kopiert man die Formel nach C4 bis C6, steht in C4 =B4*B2, in C5 =B5*B3 und in C6 =B6*B4. C4 zeigt #WERT!, weil B2 den Text „verkauft“ enthält.
           en: |-
-            A spreadsheet of the waffle stand. B1: price per waffle 2.5 (€). Column A: time 2, 3, 4 and 5 pm. Column B: sold 18, 25, 31, 12. C3 holds =B3*B1, which gives 45.
+            A spreadsheet of the waffle stall. B1: price per waffle 2.5 (€). Column A: time 2, 3, 4 and 5 pm. Column B: sold 18, 25, 31, 12. C3 holds =B3*B1, which gives 45.
 
             If you copy the formula to C4 to C6, C4 holds =B4*B2, C5 holds =B5*B3 and C6 holds =B6*B4. C4 shows #VALUE!, because B2 holds the text “sold”.
       - type: text
         text:
-          de: Drück auf „Formel aus C3 nach C4–C6 kopieren“. Wähl dann C4 an und schau, wohin die Pfeile zeigen.
-          en: Press “Copy the formula from C3 to C4–C6”. Then choose C4 and look at where the arrows point.
-      - type: single-choice
-        id: welche-formel-in-c4
-        text:
-          de: In C3 steht =B3*B1. Selin kopiert die Formel eine Zeile nach unten nach C4. Welche Formel steht dann in C4?
-          en: C3 holds =B3*B1. Selin copies the formula one row down to C4. Which formula is then in C4?
-        options:
-          - text: { de: "=B4*B2", en: "=B4*B2" }
-            correct: true
-            info:
-              de: Beide Bezüge rutschen eine Zeile nach unten mit, auch B1. Darum liest C4 aus B2, und dort steht ein Text.
-              en: Both references slide one row down, B1 too. So C4 reads from B2, and B2 holds text.
-          - text: { de: "=B3*B1", en: "=B3*B1" }
-            correct: false
-            info:
-              de: So bliebe die Formel gleich. Ein normaler Bezug wandert beim Kopieren aber mit.
-              en: Then the formula would stay the same. But a normal reference moves along when you copy it.
-          - text: { de: "=B4*B1", en: "=B4*B1" }
-            correct: false
-            info:
-              de: "Das wäre richtig gerechnet, aber so kopiert das Blatt nicht: Es verschiebt jeden Bezug, auch B1."
-              en: "That would be the right sum, but it is not how the sheet copies: it moves every reference, B1 too."
-        explanation:
-          de: Beim Kopieren um eine Zeile nach unten wandert jeder Bezug eine Zeile mit. Aus B1 wird B2.
-          en: When you copy one row down, every reference moves one row along. B1 becomes B2.
+          de: |-
+            **Jona:** In C4 steht #WERT!. Und C5 zeigt 558 Euro? So viel haben wir um 16 Uhr nie eingenommen.
+
+            **Mia:** C5 rechnet 31 mal 18. Der Preis-Bezug ist auf B3 gerutscht, und da steht kein Preis, sondern eine Anzahl.
+          en: |-
+            **Jona:** C4 shows #VALUE!. And C5 shows 558 euros? We never took that much at 4 pm.
+
+            **Mia:** C5 works out 31 times 18. The price reference has slid to B3, and that is not a price but a number sold.
   - type: section
     id: idee
     title:
@@ -116,12 +126,12 @@ blocks:
       - type: text
         text:
           de: Selin schreibt in C3 jetzt =B3*\$B\$1. Kopier die Formel und wähl C5 an. Der gestrichelte Pfeil mit \$ zeigt immer auf B1.
-          en: Selin now writes =B3*\$B\$1 in C3. Copy the formula and choose C5. The dashed arrow with \$ always points to B1.
+          en: Selin now writes =B3*\$B\$1 in C3. Copy the formula and select C5. The dashed arrow with \$ always points to B1.
       - type: vue-component
         component: Rechenblatt
         props:
           sprache: { de: de, en: en }
-          name: { de: Waffelstand mit festem Preis, en: Waffle stand with a fixed price }
+          name: { de: Waffelstand mit festem Preis, en: Waffle stall with a fixed price }
           start: C3
           kopieren: { von: C3, nach: [C4, C5, C6] }
           zellen:
@@ -144,7 +154,7 @@ blocks:
           de: |-
             Derselbe Waffelstand. In C3 steht =B3*\$B\$1 und ergibt 45. Kopiert nach C4 bis C6: C4 =B4*\$B\$1 ergibt 62,5, C5 =B5*\$B\$1 ergibt 77,5, C6 =B6*\$B\$1 ergibt 30. Der Bezug auf B3 wandert mit, \$B\$1 bleibt fest.
           en: |-
-            The same waffle stand. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
+            The same waffle stall. C3 holds =B3*\$B\$1, which gives 45. Copied to C4 to C6: C4 =B4*\$B\$1 gives 62.5, C5 =B5*\$B\$1 gives 77.5, C6 =B6*\$B\$1 gives 30. The reference to B3 moves along, \$B\$1 stays fixed.
       - type: text
         text:
           de: |-
@@ -178,66 +188,66 @@ blocks:
         id: zeile-nach-kopieren
         given:
           r: { int: [3, 6] }
-          n: { int: [1, 5] }
+          n: { int: [2, 5] }
         where: ["n != r"]
         task:
           text:
-            de: "In C{{r}} steht =B{{r}}*\\$B\\$1. Selin kopiert die Formel {{n}} Zeilen nach unten. Aus welcher Zeile von Spalte B liest der erste Bezug der neuen Formel?"
-            en: "C{{r}} holds =B{{r}}*\\$B\\$1. Selin copies the formula {{n}} rows down. Which row of column B does the first reference of the new formula read from?"
+            de: "In C{{r}} steht eine Formel mit dem Bezug B{{r}}. Vor B{{r}} steht kein $. Selin kopiert die Formel {{n}} Zeilen nach unten. Aus welcher Zeile liest der Bezug jetzt? Gib die Nummer der Zeile ein."
+            en: "C{{r}} holds a formula with the reference B{{r}}. There is no $ in B{{r}}. Selin copies the formula {{n}} rows down. Which row does the reference read from now? Type the number of the row."
         answer: { value: "r + n", compare: { number: { format: integer } } }
         mistakes:
           - value: "r"
             message:
-              de: "B{{r}} hat kein \\$. Darum bleibt er nicht stehen, sondern wandert {{n}} Zeilen mit."
-              en: "B{{r}} has no \\$. So it does not stay put but moves {{n}} rows along."
-          - value: "1"
-            message:
-              de: "Zeile 1 gehört zu \\$B\\$1, dem zweiten Bezug. Gefragt ist der erste, B{{r}}."
-              en: "Row 1 belongs to \\$B\\$1, the second reference. The question is about the first one, B{{r}}."
+              de: "B{{r}} hat kein $. Darum bleibt der Bezug nicht stehen, sondern wandert {{n}} Zeilen mit."
+              en: "B{{r}} has no $. So the reference does not stay put but moves {{n}} rows along."
           - value: "n"
             message:
               de: "{{n}} ist nur, um wie viele Zeilen kopiert wird. Zähl das zur Zeile {{r}} dazu."
-              en: "{{n}} is just how many rows it is copied by. Add it to row {{r}}."
+              en: "{{n}} is only how many rows it is copied by. Add it to row {{r}}."
+          - value: "r - 1 + n"
+            message:
+              de: "Fast: Zähl genau. Von Zeile {{r}} aus {{n}} Zeilen nach unten."
+              en: "Nearly: count carefully. From row {{r}}, go {{n}} rows down."
         hint:
-          de: Ein Bezug ohne \$ wandert genauso weit wie die Formel.
-          en: A reference without \$ moves just as far as the formula.
+          de: Ein Bezug ohne $ wandert genauso weit wie die Formel.
+          en: A reference without $ moves just as far as the formula.
         steps:
           - de: "B{{r}} ist relativ. Die Formel rutscht {{n}} Zeilen nach unten, also auch der Bezug: Zeile {{r}} + {{n}} = {{answer}}."
             en: "B{{r}} is relative. The formula slides {{n}} rows down, so the reference does too: row {{r}} + {{n}} = {{answer}}."
       - type: single-choice
         id: gemischt-fest
         text:
-          de: In einer Formel steht der Bezug D\$4. Was bleibt beim Kopieren fest?
-          en: A formula holds the reference D\$4. What stays fixed when you copy it?
+          de: In einer Formel steht der Bezug D$4. Was bleibt beim Kopieren fest?
+          en: A formula holds the reference D$4. What stays fixed when you copy it?
         options:
           - text: { de: nur die Zeile 4, en: only row 4 }
             correct: true
             info:
-              de: Das \$ steht vor der 4. Es hält die Zeile fest, die Spalte D wandert.
-              en: The \$ stands before the 4. It keeps the row fixed, and column D moves.
+              de: Das $ steht vor der 4. Es hält die Zeile fest, die Spalte D wandert.
+              en: The $ stands before the 4. It keeps the row fixed, and column D moves.
           - text: { de: nur die Spalte D, en: only column D }
             correct: false
             info:
-              de: Für eine feste Spalte müsste das \$ vor dem D stehen, also \$D4.
-              en: For a fixed column the \$ would have to stand before the D, as in \$D4.
+              de: "Für eine feste Spalte müsste das Dollarzeichen vor dem D stehen: $D4."
+              en: "For a fixed column the dollar sign would have to stand before the D: $D4."
           - text: { de: Spalte und Zeile, en: column and row }
             correct: false
             info:
-              de: Dafür bräuchte es zwei \$, also \$D\$4.
-              en: That would need two \$ signs, as in \$D\$4.
+              de: Dafür bräuchte es ein $ vor dem D und eins vor der 4.
+              en: That would need one $ before the D and one before the 4.
           - text: { de: nichts, en: nothing }
             correct: false
             info:
-              de: Das \$ hält immer den Teil fest, vor dem es steht.
-              en: The \$ always keeps the part fixed that it stands before.
+              de: Das $ hält immer den Teil fest, vor dem es steht.
+              en: The $ always keeps the part fixed that it stands before.
         explanation:
-          de: Ein \$ hält genau den Teil fest, vor dem es steht. D\$4 ist ein gemischter Bezug.
-          en: A \$ keeps exactly the part fixed that it stands before. D\$4 is a mixed reference.
+          de: Ein Dollarzeichen hält genau den Teil fest, vor dem es steht. D$4 ist ein gemischter Bezug.
+          en: A dollar sign keeps exactly the part fixed that it stands before. D$4 is a mixed reference.
       - type: matching
         id: zwei-runter-eins-rechts
         text:
-          de: Eine Formel steht in B2. Ali kopiert sie nach C4, also eine Spalte nach rechts und zwei Zeilen nach unten. Was wird aus jedem Bezug?
-          en: A formula is in B2. Ali copies it to C4, so one column to the right and two rows down. What does each reference become?
+          de: "Eine Formel steht in B2. Ali kopiert sie nach C4: eine Spalte nach rechts und zwei Zeilen nach unten. Beides wandert also zugleich. Was wird aus jedem Bezug?"
+          en: "A formula is in B2. Ali copies it to C4: one column to the right and two rows down. So both move at once. What does each reference become?"
         pairs:
           - left: { de: "=A1", en: "=A1" }
             right: { de: "=B3", en: "=B3" }
@@ -245,11 +255,11 @@ blocks:
             right: { de: "=$A3", en: "=$A3" }
           - left: { de: "=A$1", en: "=A$1" }
             right: { de: "=B$1", en: "=B$1" }
-          - left: { de: "=$A$1", en: "=$A$1" }
-            right: { de: "=$A$1", en: "=$A$1" }
+          - left: { de: "=B2", en: "=B2" }
+            right: { de: "=C4", en: "=C4" }
         explanation:
-          de: Ohne \$ wandert ein Teil mit (Spalte +1, Zeile +2). Mit \$ bleibt er stehen.
-          en: A part without \$ moves along (column +1, row +2). A part with \$ stays put.
+          de: Ohne $ wandert ein Teil mit (Spalte +1, Zeile +2). Mit Dollarzeichen bleibt er stehen.
+          en: A part without $ moves along (column +1, row +2). A part with a dollar sign stays put.
       - type: vue-component
         id: anteil-formel
         component: FormelAufgabe
@@ -259,11 +269,11 @@ blocks:
           aufgaben:
             - text:
                 de: "Von den Einnahmen jedes Stands gehen 10 % an die Schülervertretung (SV). Der Anteil steht in B7. Schreib in C2 eine Formel für den Betrag der SV. Sie wird danach nach C3 bis C5 kopiert."
-                en: "10% of each stand's takings goes to the student council. The share is in B7. Write a formula in C2 for the student council's amount. It is then copied to C3 to C5."
+                en: "10% of each stall's takings goes to the student council. The share is in B7. Write a formula in C2 for the student council's amount. It is then copied to C3 to C5."
               zellen:
-                - { z: A1, t: { de: Stand, en: Stand } }
+                - { z: A1, t: { de: Stand, en: Stall } }
                 - { z: B1, t: { de: Einnahmen, en: Takings } }
-                - { z: C1, t: { de: SV, en: council } }
+                - { z: C1, t: { de: SV, en: Council } }
                 - { z: A2, t: { de: Waffeln, en: Waffles } }
                 - { z: B2, w: 340 }
                 - { z: A3, t: { de: Saft, en: Juice } }
@@ -320,13 +330,13 @@ blocks:
       - type: text
         text:
           de: |-
-            **Jona:** Jetzt stimmt jede Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.
+            **Jona:** Mit dem $ stimmt Selins Blatt jetzt in jeder Zeile, auch wenn ich mich verzählt habe und eine Zahl ändere.
 
             **Mia:** Aber wenn ich eine Zahl ändere, welche Zellen rechnen dann alle neu?
 
             Das zeigt ein Datenflussdiagramm. Darum geht es im nächsten Kapitel.
           en: |-
-            **Jona:** Now every row is right, even if I miscounted and change a number.
+            **Jona:** With the $, Selin's sheet is right in every row now, even if I miscounted and change a number.
 
             **Mia:** But when I change a number, which cells all work out again?
 

@@ -13,6 +13,8 @@ const props = defineProps<{
   pfeile?: { von: string; nach: string; fest: boolean }[];
   /** Name des Gitters für Screenreader. */
   name: string;
+  /** Die Erklärung der Zeichen unter dem Gitter. */
+  legende?: { art: string; symbol: string; text: string }[];
 }>();
 const emit = defineEmits<{ waehle: [string] }>();
 
@@ -86,7 +88,8 @@ function taste(e: KeyboardEvent, z: string): void {
             ? i - n
             : -1;
   const c = props.zellen[ziel];
-  if (ziel < 0 || !c) return;
+  const quer = e.key === "ArrowRight" || e.key === "ArrowLeft";
+  if (ziel < 0 || !c || (quer && Math.floor(ziel / n) !== Math.floor(i / n))) return;
   e.preventDefault();
   emit("waehle", c.z);
   void nextTick(() => huelle.value?.querySelector<HTMLElement>(`[data-z="${c.z}"]`)?.focus());
@@ -130,6 +133,11 @@ const fokus = (z: string) => (props.auswahl ?? props.zellen[0]?.z) === z;
         </tr>
       </tbody>
     </table>
+    <ul v-if="legende?.length" class="legende">
+      <li v-for="l in legende" :key="l.art" :class="'art-' + l.art">
+        <span class="symbol-legende" aria-hidden="true">{{ l.symbol }}</span> {{ l.text }}
+      </li>
+    </ul>
     <svg
       v-if="linien.length"
       class="pfeile"
@@ -139,13 +147,13 @@ const fokus = (z: string) => (props.auswahl ?? props.zellen[0]?.z) === z;
       aria-hidden="true"
     >
       <defs>
-        <marker :id="spitze" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <marker :id="spitze" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
           <path d="M0 0 L10 5 L0 10 z" class="spitze" />
         </marker>
       </defs>
       <g v-for="(l, i) in linien" :key="i">
         <line :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" :class="{ fest: l.fest }" :marker-end="`url(#${spitze})`" />
-        <text v-if="l.fest" :x="(l.x1 + l.x2) / 2 + 4" :y="(l.y1 + l.y2) / 2 - 4" class="dollar">$</text>
+        <text v-if="l.fest" :x="(l.x1 + l.x2) / 2 + 6" :y="(l.y1 + l.y2) / 2 - 6" class="dollar">$</text>
       </g>
     </svg>
   </div>
@@ -154,6 +162,7 @@ const fokus = (z: string) => (props.auswahl ?? props.zellen[0]?.z) === z;
 <style scoped>
 .gitter {
   max-width: 40rem;
+  margin-left: -7px;
   --zahl: #2f5fb3;
   --text: #6a4c93;
   --wahr: #23704a;
@@ -175,21 +184,21 @@ const fokus = (z: string) => (props.auswahl ?? props.zellen[0]?.z) === z;
 table {
   width: 100%;
   table-layout: fixed;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 7px 3px;
   color: var(--page-text);
 }
 th:first-child {
-  width: 2rem;
+  width: 1.4rem;
 }
 th {
   font-weight: 600;
   color: var(--page-muted);
   padding: 0.25rem;
-  min-width: 1.75rem;
   text-align: center;
 }
 td {
-  padding: 2px;
+  padding: 0;
 }
 .zelle {
   position: relative;
@@ -199,7 +208,7 @@ td {
   gap: 0.25rem;
 
   min-height: 2.75rem;
-  padding: 0.7rem 0.3rem 0.2rem 0.35rem;
+  padding: 0.7rem 0.25rem 0.2rem 0.3rem;
   font-size: 0.95rem;
   line-height: 1.2;
   border: 1px solid var(--page-border);
@@ -253,6 +262,10 @@ td {
 .art-fehler {
   border-left-color: var(--fehler);
 }
+.art-fehler .wert {
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
 .art-fehler .symbol,
 .art-fehler .wert {
   color: var(--fehler);
@@ -268,6 +281,40 @@ td {
 }
 .neu {
   box-shadow: inset 0 0 0 2px var(--pfeil);
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--page-muted);
+}
+.symbol-legende {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0 0.2rem;
+  border-left: 4px solid currentColor;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.legende .art-ganz .symbol-legende {
+  color: var(--zahl);
+}
+.legende .art-text .symbol-legende {
+  color: var(--text);
+}
+.legende .art-bool .symbol-legende {
+  color: var(--wahr);
+}
+.legende .art-fehler .symbol-legende {
+  color: var(--fehler);
+}
+.legende .art-neu .symbol-legende {
+  color: var(--pfeil);
+  border: 2px solid var(--pfeil);
 }
 .nur-vorlesen {
   position: absolute;
