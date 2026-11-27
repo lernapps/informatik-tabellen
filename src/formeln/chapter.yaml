@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Formeln und Bezüge
+  en: Formulas and references
+summary:
+  de: Die Kasse bekommt Formeln. Beim Kopieren wandern Bezüge mit, ein Dollarzeichen hält sie fest.
+  en: The till gets formulas. When you copy them, references move along, and a dollar sign keeps them fixed.
+pages: [bezuege]

@@ -1,0 +1,165 @@
+# Texte der Komponenten Rechenblatt und FormelAufgabe: Oberfläche und Gründe für Fehler. {name} wird ausgefüllt.
+- id: typ-ganz
+  text: { de: "Zahl (ganze Zahl)", en: "number (whole number)" }
+- id: typ-komma
+  text: { de: "Zahl (Kommazahl)", en: "number (decimal number)" }
+- id: typ-text
+  text: { de: Text, en: text }
+- id: typ-bool
+  text: { de: Wahrheitswert, en: Boolean value }
+- id: typ-fehler
+  text: { de: Fehlerwert, en: error value }
+- id: typ-leer
+  text: { de: leer, en: empty }
+- id: zelle
+  text: { de: "– {z}, {typ}", en: "– {z}, {typ}" }
+- id: zelle-formel
+  text: { de: "– {z}, {typ}, Formel {f}", en: "– {z}, {typ}, formula {f}" }
+- id: inhalt
+  text: { de: "Inhalt von {z}:", en: "Contents of {z}:" }
+- id: ergebnis
+  text: { de: "{z} zeigt {wert}. Typ: {typ}.", en: "{z} shows {wert}. Type: {typ}." }
+- id: pfeile
+  text:
+    de: "Die Pfeile zeigen, aus welchen Zellen {z} liest."
+    en: "The arrows show which cells {z} reads from."
+- id: pfeile-fest
+  text:
+    de: "Die Pfeile zeigen, aus welchen Zellen {z} liest. Der gestrichelte Pfeil mit $ gehört zu einem Bezug, der beim Kopieren fest bleibt."
+    en: "The arrows show which cells {z} reads from. The dashed arrow with $ belongs to a reference that stays fixed when you copy."
+- id: legende-zahl
+  text: { de: Zahl, en: number }
+- id: legende-text
+  text: { de: Text, en: text }
+- id: legende-bool
+  text: { de: Wahrheitswert, en: Boolean value }
+- id: legende-fehler
+  text: { de: Fehlerwert, en: error value }
+- id: legende-neu
+  text: { de: gerade neu gerechnet, en: just worked out again }
+- id: kopieren
+  text: { de: "Formel aus {von} nach {bis} kopieren", en: "Copy the formula from {von} to {bis}" }
+- id: zuruecksetzen
+  text: { de: Zurücksetzen, en: Reset }
+- id: blatt
+  text: { de: Rechenblatt der Kasse, en: Spreadsheet of the till }
+- id: wird-kopiert
+  text:
+    de: "Deine Formel aus {z} wird nach {von} bis {bis} kopiert."
+    en: "Your formula in {z} is copied to {von} to {bis}."
+- id: formel-fuer
+  text: { de: "Formel für {z}:", en: "Formula for {z}:" }
+- id: deine-formel
+  text: { de: "deine Formel", en: "your formula" }
+- id: kopiert
+  text: { de: "Kopiert nach {von} bis {bis}.", en: "Copied to {von} to {bis}." }
+- id: lesen-kein-gleich
+  text:
+    de: "Eine Formel beginnt mit =. Ohne = hält das Blatt deine Eingabe für einen Text."
+    en: "A formula starts with =. Without = the sheet takes what you typed as text."
+- id: lesen-leer
+  text: { de: "Nach dem = fehlt die Rechnung.", en: "The calculation after the = is missing." }
+- id: lesen-zeichen
+  text:
+    de: "Das Blatt kann „{info}“ nicht lesen. Kommazahlen schreibst du mit Komma (2,5), Bezüge wie B2 oder $B$8."
+    en: "The sheet cannot read “{info}”. Write decimal numbers with a point (2.5) and references like B2 or $B$8."
+- id: lesen-klammer-zu
+  text:
+    {
+      de: "Eine Klammer wird nicht geschlossen. Zähl die Klammern.",
+      en: "A bracket is not closed. Count the brackets.",
+    }
+- id: lesen-klammer-auf
+  text: { de: "Hier ist eine Klammer zu viel geschlossen.", en: "A bracket is closed that was never opened." }
+- id: lesen-erwartet-wert
+  text:
+    de: "Nach einem Rechenzeichen muss ein Wert oder ein Bezug kommen."
+    en: "After an operator there has to be a value or a reference."
+- id: lesen-zu-viel
+  text:
+    de: "Zwischen zwei Werten fehlt ein Rechenzeichen, zum Beispiel *."
+    en: "An operator is missing between two values, for example *."
+- id: lesen-argumente
+  text:
+    de: "Die Funktion {info} hat zu viele oder zu wenige Argumente."
+    en: "The function {info} has too many or too few arguments."
+- id: lesen-trenner
+  text:
+    de: "Trenne die Argumente einer Funktion mit {sep}."
+    en: "Separate the arguments of a function with {sep}."
+- id: lesen-text-offen
+  text: { de: "Ein Text in Anführungszeichen wird nicht geschlossen.", en: "A text in quotation marks is not closed." }
+- id: fehler-text-rechnen
+  text:
+    de: "{code}: „{info}“ ist ein Text. Mit Text kann das Blatt nicht rechnen. Nimm eine Zelle mit einer Zahl."
+    en: "{code}: “{info}” is text. The sheet cannot do sums with text. Use a cell with a number."
+- id: fehler-wahr-rechnen
+  text:
+    de: "{code}: WAHR und FALSCH sind Wahrheitswerte. Mit ihnen rechnet unser Blatt nicht."
+    en: "{code}: TRUE and FALSE are Boolean values. Our sheet does not do sums with them."
+- id: fehler-vergleich-typen
+  text:
+    de: "{code}: Du vergleichst Werte verschiedener Typen, zum Beispiel einen Text mit einer Zahl."
+    en: "{code}: you are comparing values of different types, for example text with a number."
+- id: fehler-bedingung
+  text:
+    de: "{code}: Die Bedingung muss WAHR oder FALSCH ergeben, zum Beispiel D6>=300."
+    en: "{code}: the condition has to give TRUE or FALSE, for example D6>=300."
+- id: fehler-logik-argument
+  text:
+    de: "{code}: UND, ODER und NICHT brauchen Bedingungen, die WAHR oder FALSCH ergeben."
+    en: "{code}: AND, OR and NOT need conditions that give TRUE or FALSE."
+- id: fehler-text-argument
+  text:
+    de: "{code}: Diese Funktion braucht Zahlen, aber ein Argument ist Text."
+    en: "{code}: this function needs numbers, but one argument is text."
+- id: fehler-div0
+  text: { de: "{code}: Du teilst durch 0. Das geht nicht.", en: "{code}: you are dividing by 0. That is not possible." }
+- id: fehler-mittelwert-leer
+  text:
+    de: "{code}: Im Bereich steht keine Zahl. Ohne Zahlen gibt es keinen Mittelwert."
+    en: "{code}: there is no number in the range. Without numbers there is no average."
+- id: fehler-name-unbekannt
+  text:
+    de: "{code}: Das Blatt kennt „{info}“ nicht. Prüf, wie die Funktion oder der Bezug geschrieben wird."
+    en: "{code}: the sheet does not know “{info}”. Check how the function or the reference is written."
+- id: fehler-name-sprache
+  text:
+    de: "{code}: Auf Deutsch heißt diese Funktion {info}."
+    en: "{code}: in English this function is called {info}."
+- id: fehler-bezug-ausserhalb
+  text:
+    de: "{code}: Beim Kopieren ist ein Bezug aus dem Blatt gerutscht."
+    en: "{code}: when copying, a reference slid off the sheet."
+- id: fehler-zirkel
+  text:
+    de: "{code}: Die Formel liest aus ihrer eigenen Zelle. So kommt die Rechnung nie zu einem Ende."
+    en: "{code}: the formula reads from its own cell. That way the calculation never ends."
+- id: ohne-bezug
+  text:
+    de: "Deine Formel rechnet nur mit festen Zahlen. Ändert sich ein Wert im Blatt, stimmt sie nicht mehr. Nimm Zellbezüge wie B2."
+    en: "Your formula only uses fixed numbers. If a value in the sheet changes, it is wrong. Use cell references like B2."
+- id: nur-diese-zahlen
+  text:
+    de: "Deine Formel stimmt für die Zahlen hier, aber nicht mehr, wenn sich die Zahlen ändern. Steckt eine feste Zahl darin, wo ein Bezug hingehört?"
+    en: "Your formula is right for these numbers, but not when the numbers change. Is there a fixed number in it where a reference should be?"
+- id: dollar-fehlt
+  text:
+    de: "In der ersten Zelle stimmt deine Formel. Beim Kopieren wandert aber {ref} mit. Dieser Bezug muss fest bleiben."
+    en: "Your formula is right in the first cell. But when it is copied, {ref} moves too. This reference has to stay fixed."
+- id: dollar-zu-viel
+  text:
+    de: "In der ersten Zelle stimmt deine Formel. Beim Kopieren bleibt aber ein Bezug fest, der mitwandern muss. Schau, wo du $ gesetzt hast."
+    en: "Your formula is right in the first cell. But when it is copied, a reference stays fixed that has to move. Look at where you put $."
+- id: kopie-falsch
+  text:
+    de: "In der ersten Zelle stimmt deine Formel, in den kopierten Zellen nicht. Wähl eine kopierte Zelle und folge den Pfeilen."
+    en: "Your formula is right in the first cell, but not in the copied cells. Choose a copied cell and follow the arrows."
+- id: zahl-statt-bezug
+  text:
+    de: "In deiner Formel steht eine feste Zahl. Steht dieser Wert schon in einer Zelle? Dann nimm einen Bezug auf diese Zelle."
+    en: "Your formula has a fixed number in it. Is that value already in a cell? Then use a reference to that cell."
+- id: andere-zellen
+  text:
+    de: "Deine Formel liest aus {zellen}. Passt das zur Aufgabe?"
+    en: "Your formula reads from {zellen}. Does that fit the task?"
